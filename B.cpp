@@ -19,6 +19,8 @@ using namespace std;
 #define INF 1000000007
 #define PI 3.1415926535897932384626
 
+template <typename T = ll> vector <T> read(int size = 0, istream &in_stream = std :: cin){if(!size) in_stream >> size; vector <T> a(size); for(auto &x:a)in_stream >> x; return a;}
+
 
 mt19937_64 rang(chrono::high_resolution_clock::now().time_since_epoch().count());
 int rng(int lim) {
@@ -70,18 +72,6 @@ char toup(char x){
 	return x - 32;
 }
 
-void leftrotate(string &s, int k){
-	reverse(s.begin(), s.begin() + k);
-	reverse(s.begin() + k, s.end());
-	reverse(s.begin(), s.end());
-}
-
-void readarray(ll a[], ll n){
-	FOR(0, n){
-		cin >> a[i];
-	}
-}
-
 void prefill(ll a[], ll n, ll val){
 	FOR(0, n){
 		a[i] = val;
@@ -104,41 +94,8 @@ const ll Mxn = 1e6 + 10;
 vector <ll> adj[Mxn];
 ll dist[Mxn], vis[Mxn], n, m;
 
-ll bfs(ll u){
-	vis[u] = 1;
-	dist[u] = 1;
-	queue <ll> q;
-	q.push(u);
-	while(!q.empty()){
-		ll x = q.front();
-		q.pop();
-		for(ll z : adj[x]){
-			if(!vis[z]){
-				vis[z] = 1;
-				q.push(z);
-				dist[z] = 1 + dist[x];
-			}
-		}
-	}
-	return *max_element(dist, dist + Mxn);
-}
-
-int dp[Mxn];
 
 void solve(){
-	int n;
-	cin >> n;
-
-	ll ans = 0;
-	for(ll i = 1; i <= n; ++i){
-		ll k = i;
-		dp[i] = INT_MAX;
-		while(k){
-			dp[i] = min(dp[i], dp[i - (k % 10)] + 1);
-			k /= 10;
-		}
-	}
-	cout << dp[n];
 }
 
 int main(){
