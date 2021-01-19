@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+using ll = long long;
 
 #define endl "\n"
 #define gc getchar_unlocked
-#define ll long long
 #define FOR(a, b) for(ll i = (a); i < (b); ++i)
 #define EACH(x, a) for(auto &x : a)
 #define deb(x)  cout << #x << " : " << x << "\n"
